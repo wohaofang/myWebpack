@@ -1,8 +1,9 @@
 require('./world')
-require('css-loader!./style.css')
+require('./style.css')
+// require('style-loader!css-loader!./style.css')
 
 function hello(res) {
     console.log(res)
 } 
 
-hello('hello dingming')
+hello('hello dingmingasda') 
