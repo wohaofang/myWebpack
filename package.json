@@ -1,0 +1,22 @@
+{
+  "name": "mywebpack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wohaofang/myWebpack.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wohaofang/myWebpack/issues"
+  },
+  "homepage": "https://github.com/wohaofang/myWebpack#readme",
+  "devDependencies": {
+    "webpack": "^3.10.0"
+  }
+}
