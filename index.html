@@ -4,11 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <script src="<%= htmlWebpackPlugin.files.chunks.main.entry %>"></script>
 </head>
 <body>
-    
+     我是谁
 
+    <%= htmlWebpackPlugin.options.data %>
+    <% for (key in htmlWebpackPlugin.files) {%>
+        <%= key %> : <%= JSON.stringify(htmlWebpackPlugin.files[key]) %>
+    <% } %>
+
+    <% for (key in htmlWebpackPlugin.options) {%>
+        <%= key %> : <%= JSON.stringify(htmlWebpackPlugin.options[key]) %>
+    <% } %>
     <script src="bundle.js"></script>
+    <script src="<%= htmlWebpackPlugin.files.chunks.a.entry %>"></script>
+    <!-- woshizhushi  -->
 </body>
 </html>
