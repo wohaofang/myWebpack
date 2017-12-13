@@ -35,7 +35,12 @@ module.exports = {
                 // include: './src/', //打包范围就在 src下
                 include: path.resolve(__dirname, 'src'),
                 loader: "babel-loader" 
+            },
+            {
+                test: /\.css$/,
+                // loader: 'style-loader!css-loader!postcss-loader',//上下相等
+                loader: ['style-loader','css-loader?importLoaders=1','postcss-loader']
             }
         ]
-    }
+    },
 }
