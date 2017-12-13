@@ -60,17 +60,50 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ 	return __webpack_require__(__webpack_require__.s = 0);
 /******/ })
 /************************************************************************/
 /******/ ([
-/* 0 */,
-/* 1 */
-/***/ (function(module, exports) {
+/* 0 */
+/***/ (function(module, exports, __webpack_require__) {
 
-function a(){
-    console.log(11)
+"use strict";
+
+
+var _index = __webpack_require__(1);
+
+var _index2 = _interopRequireDefault(_index);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var App = function App() {
+    var aaa = 1;
+    alert(aaa);
+    console.log(_index2.default);
+};
+
+new App();
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+// import tpl from './index.html';
+
+function layer() {
+    return {
+        name: 'dingming',
+        tpl: tpl
+    };
 }
+
+exports.default = layer;
 
 /***/ })
 /******/ ]);
