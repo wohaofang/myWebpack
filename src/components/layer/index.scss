@@ -1,3 +1,4 @@
+
 .layer{
     width: 600px;
     height: 200px;
@@ -5,6 +6,9 @@
     div{
         width: 600px;
         height: 200px;
-        backface:red;
+        background:red;
+    }
+    .flex{
+        display: flex;
     }
 }
