@@ -4,9 +4,10 @@
     height: 200px;
     background: #ccc;
     div{
-        width: 600px;
-        height: 200px;
-        background:red;
+        width: 400px;
+        height: 100px;
+        // background:red;
+        background: url('./good copy@2x.png');
     }
     .flex{
         display: flex;

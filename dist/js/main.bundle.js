@@ -535,9 +535,13 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var App = function App() {
     console.log(layer);
     var dom = document.getElementById('app');
-    var layer = new layer();
+    var layer = new _index2.default();
 
-    dom.innerHTML = layer.tpl;
+    dom.innerHTML = layer.ejs({
+        name: 'john',
+        arr: ['apply', 'xiaomi', 'oppo']
+    });
+    dom.innerHTML += layer.tpl;
 };
 
 new App();
@@ -711,7 +715,11 @@ var _index = __webpack_require__(8);
 
 var _index2 = _interopRequireDefault(_index);
 
-__webpack_require__(9);
+var _index3 = __webpack_require__(9);
+
+var _index4 = _interopRequireDefault(_index3);
+
+__webpack_require__(10);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -720,7 +728,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function layer() {
     return {
         name: 'dingming',
-        tpl: _index2.default
+        tpl: _index2.default,
+        ejs: _index4.default
     };
 }
 
@@ -734,12 +743,35 @@ module.exports = "<div class=\"layer\">\n    <div>this is layer</div>\n</div>";
 
 /***/ }),
 /* 9 */
+/***/ (function(module, exports) {
+
+module.exports = function (obj) {
+obj || (obj = {});
+var __t, __p = '', __j = Array.prototype.join;
+function print() { __p += __j.call(arguments, '') }
+with (obj) {
+__p += '<div class="layer">\n    <div>this is ' +
+((__t = ( name )) == null ? '' : __t) +
+' layer</div>\n    ';
+ for (var i = 0; i < arr.length; i++) { ;
+__p += '\n        ' +
+((__t = ( arr[i] )) == null ? '' : __t) +
+'\n    ';
+ } ;
+__p += '\n</div>';
+
+}
+return __p
+}
+
+/***/ }),
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(10);
+var content = __webpack_require__(11);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -764,7 +796,7 @@ if(false) {
 }
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(0)(undefined);
@@ -772,10 +804,16 @@ exports = module.exports = __webpack_require__(0)(undefined);
 
 
 // module
-exports.push([module.i, ".layer {\n  width: 600px;\n  height: 200px;\n  background: #ccc; }\n  .layer div {\n    width: 600px;\n    height: 200px;\n    background: red; }\n  .layer .flex {\n    display: flex; }\n", ""]);
+exports.push([module.i, ".layer {\n  width: 600px;\n  height: 200px;\n  background: #ccc; }\n  .layer div {\n    width: 400px;\n    height: 100px;\n    background: url(\"" + __webpack_require__(12) + "\"); }\n  .layer .flex {\n    display: flex; }\n", ""]);
 
 // exports
 
+
+/***/ }),
+/* 12 */
+/***/ (function(module, exports) {
+
+module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAAXNSR0IArs4c6QAAAstJREFUWAntmD1oFEEUx29jELUQNSaosbES1EYkEBVbLVQEO8HWQrDS1kKwEwvBTrBQi0gIWmqhghYqiuA3iBqsNEExp0Rskqy/d/fmcnmzuzfm9tZD9sE/b97HvPln9s3sJpVKKeUOlDtQ/A7EcbwZPAC/wTi4APqKZ5KyImSeApFJ8KE2iuN36IGUKcW5IbEczCipAXQPGFX7UnFMUlaCyColM+1SsLeqTx75UucP0T0hSYvM+ebmRVH0hvEPsAwMOn+I7gTBE7rwJ0Pgs9objT/TzJUgj+8Yq53VFW+alafUXm38mWauBFlpk652Dn3RrLxG7S/G31mTXesHt8FhEIG1dkV8veAXEFln41l2b1YwLcYisvN9NP9X9AawD7zFvoFuHA7GToYYrFBDLu05xjGYBe/BdeaK9iTyPDgocBC1DbgWkLyPFBlBS/w06gzYge8F9nrGE4xlUU+IH8V5zQvMO2YYHmH+2LyrPvJ2kGLnCZ2yiWITe0kRuTKegVtgAlTwteqrUdJkB1dKfpPItbMX7AEj1K9S605T3B+SNAVExsBVcAX8BCK7/Rnte6h7uVY9ju+1rEbinCY33pvY8h4V6RTB4Xr5+Lsl6HrM+q2d2Ks2qQ27qnO9lgslmNj8bRCyU4fV8dwGQgnaeXnbO7XgI1u4WwjuUmIPQwh2ut8WcOBwyNWzRZ2PFwQxumEHpf+Exzh34GQ3EnT95z1eIZu1g80n142dtr9oO7brP++AJBbVC1NUv0tgfBLcBfJqyk2oJ3+vVIHI9qDC9dzazwbBoImLSGIV97fKNOMlSSWyHnFSft4+93ifcEDk08uTf03wkDJKPCAS8959+OQgyF04yLZLz4Xei39zgKR9joP9QL4Fa9+Z6NYCqVegSEn89kxlCrMh8BrIZ5dgFsh/CtIg8TS4GlbL9+V9cCCVSBkod6Dcgf9kB/4AynNJzCrnxWQAAAAASUVORK5CYII="
 
 /***/ })
 /******/ ]);

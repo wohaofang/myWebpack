@@ -37,8 +37,12 @@ module.exports = {
                 loader: "babel-loader" 
             },
             {
-                test:/\.html/,
+                test:/\.html$/,
                 loader: 'html-loader'
+            },
+            {
+                test:/\.tpl$/,
+                loader: 'ejs-loader'
             },
             {
                 test: /\.css$/,
@@ -68,6 +72,28 @@ module.exports = {
                 }, {
                     loader: "less-loader" // compiles Less to CSS 
                 }]
+            },
+            // {
+            //     test: /\.(png|jpg|gig|svg)$/i,
+            //     loader: 'file-loader', //图片
+            //     query: {
+            //         name: "assets/[name]-[hash:5].[ext]" //打包到这个目录并加上hash值
+            //     }
+            // },
+            // {
+            //     test: /\.(png|jpg|gig|svg)$/i,
+            //     loader: 'url-loader', //与file-loader类似
+            //     query: {
+            //         limit: 20000,//小于20k的图片转化成basc64
+            //         name: "assets/[name]-[hash:5].[ext]" //打包到这个目录并加上hash值
+            //     }
+            // },
+            {
+                test: /\.(png|jpg|gig|svg)$/i,
+                loaders: [ // ！！！！！loaders 写成数组可以直接引入多个loader包，但是参数必须加载包后面
+                    'url-loader?limit=20000$name=assets/[name]-[hash:5].[ext]',
+                    'image-webpack' // 可以压缩图片
+                ]
             }
         ]
     },

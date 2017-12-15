@@ -1,12 +1,17 @@
 import "./css/common.css"
-import layer from './components/layer/index.js'
+import Layer from './components/layer/index.js'
 
 const App = function(){
     console.log(layer)
     var dom =document.getElementById('app');
-    var layer = new layer()
+    var layer = new Layer()
 
-    dom.innerHTML = layer.tpl
+    dom.innerHTML = layer.ejs({
+        name: 'john',
+        arr:['apply','xiaomi','oppo']
+    })
+    dom.innerHTML += layer.tpl
+    
 }
 
 new App()
